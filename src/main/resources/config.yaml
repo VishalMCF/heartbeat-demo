@@ -1,0 +1,2 @@
+protocol: tcp, udp
+port: 9400, 9401
