@@ -1,2 +1,2 @@
-protocol: tcp, udp
-port: 9400, 9401
+protocols: TCP, UDP
+ports: 9400, 9401

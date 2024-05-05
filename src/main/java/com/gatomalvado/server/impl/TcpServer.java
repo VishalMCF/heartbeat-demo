@@ -8,14 +8,7 @@ public class TcpServer implements IServer {
 
     private final ServerType serverType = ServerType.TCP;
 
-    private final static TcpServer INSTANCE = new TcpServer();
-
     private TcpServer(){
-    }
-
-    @Override
-    public IServer get(){
-        return INSTANCE;
     }
 
     @Override
@@ -24,7 +17,7 @@ public class TcpServer implements IServer {
     }
 
     @Override
-    public void start() {
-        System.out.println("Multi threaded TCP server started");
+    public void start(int port) {
+        System.out.println("Multi threaded TCP server started on port --> "+port);
     }
 }

@@ -1,7 +1,6 @@
 package com.gatomalvado.server;
 
 public interface IServer {
-    void start();
+    void start(int port);
     ServerType getServerType();
-    IServer get();
 }

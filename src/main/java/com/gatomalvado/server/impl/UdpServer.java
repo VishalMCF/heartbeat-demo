@@ -7,8 +7,6 @@ public class UdpServer implements IServer {
 
     private final ServerType serverType = ServerType.UDP;
 
-    private final static UdpServer INSTANCE = new UdpServer();
-
     private UdpServer() {
     }
 
@@ -18,12 +16,7 @@ public class UdpServer implements IServer {
     }
 
     @Override
-    public UdpServer get(){
-        return INSTANCE;
-    }
-
-    @Override
-    public void start() {
-        System.out.println("Multi threaded UDP server started");
+    public void start(int port) {
+        System.out.println("Multi threaded UDP server started on port --> "+port);
     }
 }
