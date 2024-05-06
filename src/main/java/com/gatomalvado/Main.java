@@ -8,7 +8,6 @@ import com.gatomalvado.server.impl.ServerApplicationContext;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
-import java.io.ObjectInputFilter;
 import java.util.Map;
 
 public class Main {

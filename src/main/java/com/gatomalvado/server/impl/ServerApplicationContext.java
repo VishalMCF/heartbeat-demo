@@ -10,13 +10,9 @@ import java.util.*;
 
 public class ServerApplicationContext {
 
-    @Getter
-    private static final ServerApplicationContext serverConfig = new ServerApplicationContext();
-
     private Map<String, IServer> serverToNameMap;
 
     private ServerApplicationContext() {
-        synchronized (getClass()){
             serverToNameMap = new HashMap<>();
             List<IServer> instances = new ArrayList<>();
             Reflections reflections = new Reflections("com.gatomalvado.server", new SubTypesScanner(false));
@@ -32,10 +28,17 @@ public class ServerApplicationContext {
                     e.printStackTrace();
                 }
             }
-            for(IServer instance: instances){
+            for(IServer instance: instances) {
                 serverToNameMap.put(instance.getServerType().getName(), instance);
             }
-        }
+    }
+
+    private static class SingletonHolder {
+        private static final ServerApplicationContext INSTANCE = new ServerApplicationContext();
+    }
+
+    public static ServerApplicationContext getServerConfig() {
+        return SingletonHolder.INSTANCE;
     }
 
     public IServer getServer(String name) {
